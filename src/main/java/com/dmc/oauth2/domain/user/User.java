@@ -1,11 +1,14 @@
 package com.dmc.oauth2.domain.user;
 
 import com.dmc.oauth2.domain.BaseTimeEntity;
+import com.dmc.oauth2.domain.review.Review;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Getter
 @NoArgsConstructor
@@ -49,4 +52,10 @@ public class User extends BaseTimeEntity {
     public String getRoleKey() {
         return this.role.getKey();
     }
+
+    @OneToMany(mappedBy = "user")
+    private List<Review> reviews = new ArrayList<>();
+
+
 }
+
