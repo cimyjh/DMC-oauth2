@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.dmc.oauth2.config.auth.LoginUser;
 import com.dmc.oauth2.config.auth.dto.SessionUser;
+import com.dmc.oauth2.domain.user.UserRepository;
 import com.dmc.oauth2.service.DetailService;
 import com.dmc.oauth2.service.EventService;
 import com.dmc.oauth2.service.NewsService;
@@ -43,9 +44,13 @@ public class IndexController {
     @Autowired
     private DetailService detailService;
 
+    @Autowired
+    private UserRepository userRepository;
+
 
     @GetMapping("/")
     public String index() {
+
         return "index"; // templates/index.html
     }
 
@@ -118,12 +123,11 @@ public class IndexController {
     public String review(@PathVariable long newsNum,
                          @RequestParam(value = "reviewComment") String reviewComment,
                          @RequestParam(value = "reviewLike") String reviewLike,
-                         Authentication authentication
+                         @LoginUser SessionUser user
     ) {
-        UserDetails userDetails = (UserDetails) authentication.getPrincipal();
-        String email = userDetails.getUsername();
 
-        detailService.insertReview(newsNum, email, reviewComment, reviewLike);
+        String name = user.getName();
+        detailService.insertReview(newsNum, name, reviewComment, reviewLike);
 
 
         return "redirect:/detail/{newsNum}";
