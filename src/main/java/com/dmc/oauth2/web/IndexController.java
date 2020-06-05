@@ -1,9 +1,12 @@
 package com.dmc.oauth2.web;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import com.dmc.oauth2.config.auth.LoginUser;
 import com.dmc.oauth2.config.auth.dto.SessionUser;
+import com.dmc.oauth2.domain.event.dto.EventListResponseDto;
 import com.dmc.oauth2.domain.user.UserRepository;
 import com.dmc.oauth2.service.DetailService;
 import com.dmc.oauth2.service.EventService;
@@ -30,7 +33,9 @@ import com.dmc.oauth2.service.EventService;
 import com.dmc.oauth2.service.NewsService;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import lombok.extern.slf4j.Slf4j;
 
+@Slf4j
 @RequiredArgsConstructor
 @Controller
 public class IndexController {
@@ -154,5 +159,18 @@ public class IndexController {
 
 
 
+    @GetMapping("/event/search")
+    public String event_search(@RequestParam(value = "name") String name, Model model) {
 
+        String searchName = name;
+        List<EventListResponseDto> list = this.eventService.searchByName(name);
+        model.addAttribute("events", list);
+
+        log.info(" " + list.size());
+        log.info("" + name);
+
+
+        return "event";
+
+    }
 }

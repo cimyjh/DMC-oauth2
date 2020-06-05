@@ -1,6 +1,7 @@
 plugins {
 	id 'org.springframework.boot' version '2.3.0.RELEASE'
 	id 'io.spring.dependency-management' version '1.0.9.RELEASE'
+	id "com.ewerk.gradle.plugins.querydsl" version "1.0.10"
 	id 'org.asciidoctor.convert' version '1.5.8'
 	id 'java'
 }
@@ -35,6 +36,7 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 	implementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter:2.1.2'
 	implementation 'org.thymeleaf.extras:thymeleaf-extras-springsecurity5'
+	implementation 'com.querydsl:querydsl-jpa'
 //	implementation 'org.springframework.session:spring-session-jdbc'
 	compileOnly 'org.projectlombok:lombok'
 	developmentOnly 'org.springframework.boot:spring-boot-devtools'
@@ -58,3 +60,20 @@ asciidoctor {
 	inputs.dir snippetsDir
 	dependsOn test
 }
+
+
+def querydslDir = "$buildDir/generated/querydsl"
+querydsl {
+	jpa = true
+	querydslSourcesDir = querydslDir
+}
+sourceSets {
+	main.java.srcDir querydslDir
+}
+configurations {
+	querydsl.extendsFrom compileClasspath
+}
+compileQuerydsl {
+	options.annotationProcessorPath = configurations.querydsl
+}
+//querydsl 추가 끝

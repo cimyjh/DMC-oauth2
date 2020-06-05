@@ -2,12 +2,18 @@ package com.dmc.oauth2.service;
 
 import com.dmc.oauth2.domain.event.Event;
 import com.dmc.oauth2.domain.event.EventRepository;
+import com.dmc.oauth2.domain.event.EventRepositoryCustom;
+import com.dmc.oauth2.domain.event.EventRepositoryImpl;
+import com.dmc.oauth2.domain.event.dto.EventListResponseDto;
+import com.dmc.oauth2.domain.event.dto.EventNameSearchCondition;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
+
 
 import java.util.List;
 
@@ -18,6 +24,9 @@ public class EventService {
 	
 	@Autowired
 	private EventRepository eventRepository;
+
+	@Autowired
+	private EventRepositoryImpl eventRepositoryImpl;
 
 	
 	public List<Event> findEvents() {
@@ -34,4 +43,15 @@ public class EventService {
 		pageable = PageRequest.of(page,9);
 		return eventRepository.findAll(pageable);
 	}
+
+	public List<EventListResponseDto> searchByName(String name){
+		//뭐 들어가야 하지??
+
+		EventNameSearchCondition condition = new EventNameSearchCondition();
+		condition.setName(name);
+
+		return eventRepositoryImpl.searchByName(condition);
+	}
+
+
 }

@@ -6,7 +6,7 @@ import org.springframework.data.repository.query.Param;
 
 import java.util.List;
 
-public interface EventRepository extends JpaRepository<Event, Integer> {
+public interface EventRepository extends JpaRepository<Event, Integer>, EventRepositoryCustom  {
 	
 	@Query("select e from Event e where e.store = :store")
 	List<Event> findByStore(@Param("store") String store);

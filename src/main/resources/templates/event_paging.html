@@ -134,8 +134,8 @@
 					<div>
 						<div class="row col-lg-12">
 						
-							<select name="e_evt" class="form-control col-lg-4"
-								id="e_evt">
+							<select name="evt" class="form-control col-lg-4"
+								id="evt">
 								<option value="%">전체행사</option>
 								<option value="1+1">1+1 행사</option>
 								<option value="2+1">2+1 행사</option>
@@ -146,8 +146,8 @@
 							
 							<p> &nbsp </p>
 							
-							<select name="e_product1" class="form-control  col-lg-4"
-								id="e_product1">
+							<select name="product1" class="form-control  col-lg-4"
+								id="product1">
 								<option value="%">모든 상품</option>
 								<option value="식품">식품</option>
 								<option value="과자">과자</option>
@@ -164,11 +164,12 @@
 						</div>
 					</div>
 				</form>
-					<form action="/event/search" method="get">
+
+				<form action="/event/search" method="get">
 					<div>
 					<div>
 						<div class="row col-lg-12">
-							<input type="text" class="form-control col-lg-4" id="e_name" name="e_name">
+							<input type="text" class="form-control col-lg-4" id="name" name="name">
 							
 								<input type="submit"
 								class="btn btn-primary col-1" value="검색" />
