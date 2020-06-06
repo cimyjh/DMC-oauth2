@@ -7,6 +7,7 @@ import java.util.Map;
 import com.dmc.oauth2.config.auth.LoginUser;
 import com.dmc.oauth2.config.auth.dto.SessionUser;
 import com.dmc.oauth2.domain.event.dto.EventListResponseDto;
+import com.dmc.oauth2.domain.news.dto.NewsListResponseDto;
 import com.dmc.oauth2.domain.user.UserRepository;
 import com.dmc.oauth2.service.DetailService;
 import com.dmc.oauth2.service.EventService;
@@ -160,7 +161,7 @@ public class IndexController {
 
 
     @GetMapping("/event/search")
-    public String event_search(@RequestParam(value = "name") String name, Model model) {
+    public String eventNameSearch(@RequestParam(value = "name") String name, Model model) {
 
         String searchName = name;
         List<EventListResponseDto> list = this.eventService.searchByName(name);
@@ -169,8 +170,55 @@ public class IndexController {
         log.info(" " + list.size());
         log.info("" + name);
 
+        return "event";
+    }
+
+    @GetMapping("/event/category")
+    public String eventCategorySearch(@RequestParam(value = "evt") String evt, @RequestParam(value = "product1") String product1,  Model model) {
+
+        String searchEvt = evt;
+        String SearchProduct1 = product1;
+
+        List<EventListResponseDto> list = this.eventService.searchByCategory(evt, product1);
+        model.addAttribute("events", list);
+
+        log.info(" " + list.size());
+        log.info("" + evt);
+        log.info("" + product1);
 
         return "event";
-
     }
+
+
+
+    @GetMapping("/new/search")
+    public String newsNameSearch(@RequestParam(value = "name") String name, Model model) {
+
+        String searchName = name;
+        List<NewsListResponseDto> list = this.newsService.searchByName(name);
+        model.addAttribute("news", list);
+
+        log.info(" " + list.size());
+        log.info("" + name);
+
+        return "new";
+    }
+
+    @GetMapping("/new/category")
+    public String newsCategorySearch(@RequestParam(value = "product1") String product1,  Model model) {
+
+
+        String SearchProduct1 = product1;
+
+        List<NewsListResponseDto> list = this.newsService.searchByCategory(product1);
+        model.addAttribute("news", list);
+
+        log.info(" " + list.size());
+        log.info("" + product1);
+
+        return "new";
+    }
+
+
+
 }

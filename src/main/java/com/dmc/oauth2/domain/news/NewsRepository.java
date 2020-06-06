@@ -6,7 +6,7 @@ import org.springframework.data.repository.query.Param;
 
 import java.util.List;
 
-public interface NewsRepository extends JpaRepository<News, Integer> {
+public interface NewsRepository extends JpaRepository<News, Integer>, NewsRepositoryCustom {
 	
 	@Query("select n from News n where n.store = :store")
 	List<News> findByStore(@Param("store") String store);

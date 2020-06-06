@@ -89,9 +89,13 @@
 
 					<!--  여기서 col-md-8, 4를 수정하면 크기 변환됩니다.   -->
 					<div class="col-md-7">
-						<img th:if="*{news.img eq null}" class="img-fluid" style="width: 500px; height: 500px" src="/img/product/" th:attrappend="src=${news.thumbnail}" alt="">
-						<img th:if="*{news.img ne null}" class="img-fluid" style="width: 500px; height: 500px" src="/img/product/" th:attrappend="src=${news.img}" alt="">
+						<img class="img-fluid" style="width: 500px; height: 500px" src="/img/product/" th:attrappend="src=${news.thumbnail}" alt="">
 					</div>
+
+<!--					<div class="col-md-7">-->
+<!--						<img th:if="*{news.img eq null}" class="img-fluid" style="width: 500px; height: 500px" src="/img/product/" th:attrappend="src=${news.thumbnail}" alt="">-->
+<!--						<img th:if="*{news.img ne null}" class="img-fluid" style="width: 500px; height: 500px" src="/img/product/" th:attrappend="src=${news.img}" alt="">-->
+<!--					</div>					-->
 
 					<div class="col-md-5">
 						<h3 class="my-3" th:text="${news.name}"></h3>
