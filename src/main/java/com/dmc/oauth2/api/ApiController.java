@@ -11,6 +11,8 @@ import com.dmc.oauth2.domain.news.NewsRepositoryCustom;
 import com.dmc.oauth2.domain.news.dto.NewsCategorySearchCondition;
 import com.dmc.oauth2.domain.news.dto.NewsListResponseDto;
 import com.dmc.oauth2.domain.news.dto.NewsNameSearchCondition;
+import com.dmc.oauth2.domain.review.DetailRepository;
+import com.dmc.oauth2.domain.review.dto.ReviewListResponseDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -23,7 +25,7 @@ public class ApiController {
 
     private final EventRepository eventRepository;
     private final NewsRepository newsRepository;
-
+    private final DetailRepository detailRepository;
 
 
     @GetMapping("/v1/event")
@@ -56,5 +58,9 @@ public class ApiController {
         return newsRepository.searchByCategory(condition);
     }
 
+    @GetMapping("/v1/review")
+    public List<ReviewListResponseDto> ReveiwFindAll(){
+        return detailRepository.findAllDto();
+    }
 
 }
