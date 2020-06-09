@@ -9,6 +9,8 @@ import javax.persistence.EntityManager;
 import java.util.List;
 
 import static com.dmc.oauth2.domain.review.QReview.review;
+import static com.dmc.oauth2.domain.news.QNews.news;
+import static com.dmc.oauth2.domain.user.QUser.user;
 
 
 public class DetailRepositoryImpl implements DetailRepositoryCustom{
@@ -18,11 +20,15 @@ public class DetailRepositoryImpl implements DetailRepositoryCustom{
         this.queryFactory = new JPAQueryFactory(em);
     }
 
+
+
     @Override
     public List<ReviewListResponseDto> findAllDto() {
         return queryFactory
                 .select(new QReviewListResponseDto(
                         review.reviewNum,
+                        news.newsNum,
+                        user.id,
                         review.reviewComment,
                         review.reviewLike
                 ))
