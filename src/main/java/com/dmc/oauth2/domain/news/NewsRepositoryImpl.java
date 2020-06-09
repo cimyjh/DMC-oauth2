@@ -62,6 +62,23 @@ public class NewsRepositoryImpl implements NewsRepositoryCustom {
                 .fetch();
     }
 
+    @Override
+    public List<NewsListResponseDto> findAllDto() {
+        return queryFactory
+                .select(new QNewsListResponseDto(
+                        news.newsNum,
+                        news.name,
+                        news.price,
+                        news.product1,
+                        news.product2,
+                        news.thumbnail,
+                        news.img,
+                        news.store,
+                        news.detail,
+                        news.registerDate))
+                .from(news)
+                .fetch();
+    }
 
 
     private BooleanExpression newsNameEq(String name) {

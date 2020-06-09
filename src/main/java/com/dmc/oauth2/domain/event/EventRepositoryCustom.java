@@ -12,4 +12,6 @@ public interface EventRepositoryCustom {
 
     List<EventListResponseDto> searchByCategory(EventCategorySearchCondition condition);
 
+    List<EventListResponseDto> findAllDto();
+
 }

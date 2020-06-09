@@ -64,6 +64,23 @@ public class EventRepositoryImpl implements EventRepositoryCustom {
                 .fetch();
     }
 
+    @Override
+    public List<EventListResponseDto> findAllDto() {
+        return queryFactory
+                .select(new QEventListResponseDto(
+                        event.eventNum,
+                        event.name,
+                        event.price,
+                        event.evt,
+                        event.product1,
+                        event.store,
+                        event.product2,
+                        event.img,
+                        event.registerDate,
+                        event.expireDate))
+                .from(event)
+                .fetch();
+    }
 
 
     private BooleanExpression eventNameEq(String name) {

@@ -12,4 +12,6 @@ public interface NewsRepositoryCustom {
 
     List<NewsListResponseDto> searchByCategory(NewsCategorySearchCondition condition);
 
+    List<NewsListResponseDto> findAllDto();
+
 }

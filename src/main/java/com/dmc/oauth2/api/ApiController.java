@@ -27,8 +27,8 @@ public class ApiController {
 
 
     @GetMapping("/v1/event")
-    public List<Event> findAll(){
-        return eventRepository.findAll();
+    public List<EventListResponseDto> findAll(){
+        return eventRepository.findAllDto();
     }
 
     @GetMapping("/v1/event/searchByName")
@@ -42,8 +42,8 @@ public class ApiController {
     }
 
     @GetMapping("/v1/news")
-    public List<News> NewsFindAll(){
-        return newsRepository.findAll();
+    public List<NewsListResponseDto> NewsFindAll(){
+        return newsRepository.findAllDto();
     }
 
     @GetMapping("/v1/news/searchByName")
