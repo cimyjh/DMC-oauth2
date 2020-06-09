@@ -29,6 +29,7 @@ public class EventService {
 	@Autowired
 	private EventRepositoryImpl eventRepositoryImpl;
 
+
 	
 	public List<Event> findEvents() {
 		return eventRepository.findAll();
@@ -59,6 +60,11 @@ public class EventService {
 		condition.setProduct1(product1);
 
 		return eventRepositoryImpl.searchByCategory(condition);
+	}
+
+	@Transactional(readOnly = true)
+	public List<Event> findAll(){
+		return eventRepository.findAll();
 	}
 
 
