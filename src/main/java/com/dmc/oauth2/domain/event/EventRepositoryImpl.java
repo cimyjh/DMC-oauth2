@@ -6,7 +6,6 @@ import com.dmc.oauth2.domain.event.dto.EventNameSearchCondition;
 import com.dmc.oauth2.domain.event.dto.QEventListResponseDto;
 import com.querydsl.core.types.dsl.BooleanExpression;
 import com.querydsl.jpa.impl.JPAQueryFactory;
-import com.dmc.oauth2.domain.event.Event;
 
 import javax.persistence.EntityManager;
 import java.util.List;
