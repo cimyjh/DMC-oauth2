@@ -8,7 +8,7 @@ import java.util.List;
 
 public interface DetailRepository extends JpaRepository<Review, Integer>, DetailRepositoryCustom {
 
-	@Query(value = "select * from Review where news_id =:newsNum", nativeQuery = true)
+	@Query(value = "select * from reviews where news_id =:newsNum", nativeQuery = true)
 	List<Review> findReviewByNews(@Param("newsNum") Long newsNum);
 
 

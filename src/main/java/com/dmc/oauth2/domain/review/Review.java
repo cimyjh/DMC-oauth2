@@ -10,7 +10,7 @@ import javax.persistence.*;
 @Getter
 @Setter
 @Entity
-@Table(name = "review")
+@Table(name = "reviews")
 public class Review {
 	
 	@Id @GeneratedValue
