@@ -26,32 +26,21 @@
     <loaded-nodes>
       <connection connection-id="b57de784-713d-4075-a207-5939f7796e63">
         <schema name="dmc_jpa" object-types="function, procedure, index, column, view, dataset trigger, constraint, table" />
+        <schema name="mysql" object-types="view, table" />
       </connection>
     </loaded-nodes>
   </component>
   <component name="DBNavigator.Project.DatabaseConsoleManager">
     <connection id="b57de784-713d-4075-a207-5939f7796e63">
       <console name="Connection" type="STANDARD" schema="mysql" session="Main" />
-      <console name="dmc-jpa-2" type="STANDARD" schema="mysql" session="Main"><![CDATA[create table test(
-    id bigint(20) not null auto_increment,
-    content varchar(255) default null,
-    primary key(id)
-) engine = innoDB;
-
-insert into test(content) values ('테스트');
-commit;
-
-
-
-select * from test;
-
-
-drop table test;
-
-
-alter database dmc_jpa
-CHARACTER SET = 'utf8mb4'
-COLLATE = 'utf8mb4_general_ci';]]></console>
+      <console name="dmc-jpa-2" type="STANDARD" schema="mysql" session="Main"><![CDATA[CREATE table Review(
+	review_id bigint not null,
+	review_comment varchar(255),
+	review_like varchar(255),
+	news_id bigint,
+	user_id bigint,
+	primary key(review_id)
+) engine=InnoDB]]></console>
     </connection>
   </component>
   <component name="DBNavigator.Project.DatabaseFileManager">
@@ -62,6 +51,7 @@ COLLATE = 'utf8mb4_general_ci';]]></console>
   </component>
   <component name="DBNavigator.Project.DatasetFilterManager">
     <filter-actions connection-id="b57de784-713d-4075-a207-5939f7796e63" dataset="dmc_jpa.test" active-filter-id="" />
+    <filter-actions connection-id="b57de784-713d-4075-a207-5939f7796e63" dataset="dmc_jpa.review" active-filter-id="" />
   </component>
   <component name="DBNavigator.Project.EditorStateManager">
     <last-used-providers />
