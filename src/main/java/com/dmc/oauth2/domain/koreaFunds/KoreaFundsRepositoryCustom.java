@@ -6,4 +6,6 @@ import java.util.List;
 
 public interface KoreaFundsRepositoryCustom {
     List<KoreaFundsListResponseDto> findAllDto();
+
+    List<KoreaFundsListResponseDto> findTop10ByFund_3y();
 }

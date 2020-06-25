@@ -2,6 +2,7 @@ package com.dmc.oauth2.api;
 
 import com.dmc.oauth2.domain.etfFunds.EtfFundsRepository;
 import com.dmc.oauth2.domain.etfFunds.dto.EtfFundsListResponseDto;
+import com.dmc.oauth2.domain.koreaFunds.KoreaFunds;
 import com.dmc.oauth2.domain.koreaFunds.KoreaFundsRepository;
 import com.dmc.oauth2.domain.koreaFunds.dto.KoreaFundsListResponseDto;
 import lombok.RequiredArgsConstructor;
@@ -27,6 +28,12 @@ public class FundApiController {
     @GetMapping("/v1/fund/etffunds")
     public List<EtfFundsListResponseDto> EtfFundsFindAll(){
         return etfFundsRepository.findAllDto();
+    }
+
+
+    @GetMapping("/v1/fund/koreafunds/top10")
+    public List<KoreaFunds> KoreadFundsTop10(){
+        return koreaFundsRepository.findTop10ByOrderByFund3yDesc();
     }
 
 
