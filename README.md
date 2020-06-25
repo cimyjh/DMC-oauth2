@@ -24,5 +24,5 @@
  국내 펀드, ETF에 대한 기능은 REST API를 통한 FindAll을 구현했으며 다른 기능들은 코딩을 하고 있습니다.
  
 ### AWS를 통한 배포:
- 홈페이지: http://ec2-52-78-141-209.ap-northeast-2.compute.amazonaws.com:8080/
- Swagger-ui: http://ec2-52-78-141-209.ap-northeast-2.compute.amazonaws.com:8080/swagger-ui.html#/
+- 홈페이지: http://ec2-52-78-141-209.ap-northeast-2.compute.amazonaws.com:8080/
+- Swagger-ui: http://ec2-52-78-141-209.ap-northeast-2.compute.amazonaws.com:8080/swagger-ui.html#/
