@@ -9,7 +9,7 @@ import javax.persistence.*;
 @Entity
 @Getter
 @Setter
-@Table(name = "koreaFunds")
+@Table(name = "korea_funds")
 public class KoreaFunds {
 
     @Id
@@ -18,9 +18,9 @@ public class KoreaFunds {
 
     private String fund_name;
     private String fund_type;
-    private String fund_startDate;
+    private String fund_start_date;
     private Float fund_3y;
     private Long fund_assets;
-    private Long fund_scaleOperation;
+    private Long fund_scale_operation;
 
 }

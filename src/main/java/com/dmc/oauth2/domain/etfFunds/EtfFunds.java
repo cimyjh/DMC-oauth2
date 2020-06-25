@@ -11,7 +11,7 @@ import javax.persistence.Table;
 @Entity
 @Getter
 @Setter
-@Table(name = "etfFunds")
+@Table(name = "etf_funds")
 public class EtfFunds {
 
     @Id
@@ -19,15 +19,13 @@ public class EtfFunds {
     private Long etf_num;
 
     private String etf_name;
-    private String etf_basicIndex;
+    private String etf_basic_index;
     private Long etf_close;
     private Long etf_assets;
     private Float etf_1dY;
     private Float etf_1wY;
     private Float etf_1mY;
     private Float etf_3mY;
-    private Long etf_1dVolume;
-
-
+    private Long etf_1d_volume;
 
 }
