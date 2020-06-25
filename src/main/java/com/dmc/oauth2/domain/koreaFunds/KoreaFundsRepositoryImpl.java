@@ -27,7 +27,7 @@ public class KoreaFundsRepositoryImpl implements KoreaFundsRepositoryCustom {
                         koreaFunds.fund_name,
                         koreaFunds.fund_type,
                         koreaFunds.fund_start_date,
-                        koreaFunds.fund3y,
+                        koreaFunds.fund_3y,
                         koreaFunds.fund_assets,
                         koreaFunds.fund_scale_operation))
                 .from(koreaFunds)
@@ -36,18 +36,19 @@ public class KoreaFundsRepositoryImpl implements KoreaFundsRepositoryCustom {
     }
 
     @Override
-    public List<KoreaFundsListResponseDto> findTop10ByFund_3y() {
+    public List<KoreaFundsListResponseDto> QfindTop10ByFund_3y() {
         return queryFactory
                 .select(new QKoreaFundsListResponseDto(
                         koreaFunds.fund_num,
                         koreaFunds.fund_name,
                         koreaFunds.fund_type,
                         koreaFunds.fund_start_date,
-                        koreaFunds.fund3y,
+                        koreaFunds.fund_3y,
                         koreaFunds.fund_assets,
                         koreaFunds.fund_scale_operation))
                 .from(koreaFunds)
-                .orderBy()
+                .orderBy(koreaFunds.fund_3y.desc())
+                .limit(10)
                 .fetch();
     }
 }

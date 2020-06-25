@@ -15,7 +15,6 @@ public class Oauth2Application {
 		SpringApplication.run(Oauth2Application.class, args);
 	}
 
-
 	@Bean
 	JPAQueryFactory jpaQueryFactory(EntityManager em) {
 		return new JPAQueryFactory(em);

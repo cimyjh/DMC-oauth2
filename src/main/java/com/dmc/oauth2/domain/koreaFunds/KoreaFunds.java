@@ -20,8 +20,8 @@ public class KoreaFunds {
     private String fund_type;
     private String fund_start_date;
 
-    @Column(name = "fund3y")
-    private Float fund3y;
+    @Column(name = "fund_3y")
+    private Float fund_3y;
 
     private Long fund_assets;
     private Long fund_scale_operation;

@@ -25,15 +25,36 @@ public class FundApiController {
     }
 
 
+    @GetMapping("/v1/fund/koreafunds/top10")
+    public List<KoreaFundsListResponseDto> KoreadFundsTop10(){
+        return koreaFundsRepository.QfindTop10ByFund_3y();
+    }
+
+
+
     @GetMapping("/v1/fund/etffunds")
     public List<EtfFundsListResponseDto> EtfFundsFindAll(){
         return etfFundsRepository.findAllDto();
     }
 
+    @GetMapping("/v1/fund/etffunds/1wytop10")
+    public List<EtfFundsListResponseDto> QfindTop10ByEtf_1wY(){
+        return etfFundsRepository.QfindTop10ByEtf_1wY();
+    }
 
-    @GetMapping("/v1/fund/koreafunds/top10")
-    public List<KoreaFunds> KoreadFundsTop10(){
-        return koreaFundsRepository.findTop10ByOrderByFund3yDesc();
+    @GetMapping("/v1/fund/etffunds/1mytop10")
+    public List<EtfFundsListResponseDto> QfindTop10ByEtf_1mY(){
+        return etfFundsRepository.QfindTop10ByEtf_1mY();
+    }
+
+    @GetMapping("/v1/fund/etffunds/3mytop10")
+    public List<EtfFundsListResponseDto> QfindTop10ByEtf_3mY(){
+        return etfFundsRepository.QfindTop10ByEtf_3mY();
+    }
+
+    @GetMapping("/v1/fund/etffunds/1dvtop10")
+    public List<EtfFundsListResponseDto> QfindTop10ByEtf_1dV(){
+        return etfFundsRepository.QfindTop10ByEtf_1dV();
     }
 
 
