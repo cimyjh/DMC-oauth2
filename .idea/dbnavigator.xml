@@ -23,12 +23,7 @@
     <autoscroll-to-editor value="false" />
     <autoscroll-from-editor value="true" />
     <show-object-properties value="true" />
-    <loaded-nodes>
-      <connection connection-id="b57de784-713d-4075-a207-5939f7796e63">
-        <schema name="dmc_jpa" object-types="function, procedure, index, column, view, dataset trigger, constraint, table" />
-        <schema name="mysql" object-types="view, table" />
-      </connection>
-    </loaded-nodes>
+    <loaded-nodes />
   </component>
   <component name="DBNavigator.Project.DatabaseConsoleManager">
     <connection id="b57de784-713d-4075-a207-5939f7796e63">
