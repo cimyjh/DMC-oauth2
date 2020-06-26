@@ -1,8 +1,6 @@
 package com.dmc.oauth2.web;
 
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import com.dmc.oauth2.config.auth.LoginUser;
 import com.dmc.oauth2.config.auth.dto.SessionUser;
@@ -12,26 +10,19 @@ import com.dmc.oauth2.domain.user.UserRepository;
 import com.dmc.oauth2.service.DetailService;
 import com.dmc.oauth2.service.EventService;
 import com.dmc.oauth2.service.NewsService;
-import com.dmc.oauth2.service.PostsService;
-import com.dmc.oauth2.web.dto.PostsResponseDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
-import org.springframework.security.core.Authentication;
-import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
 
 import com.dmc.oauth2.domain.review.Review;
 import com.dmc.oauth2.domain.event.Event;
 import com.dmc.oauth2.domain.news.News;
-import com.dmc.oauth2.service.EventService;
-import com.dmc.oauth2.service.NewsService;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import lombok.extern.slf4j.Slf4j;
@@ -39,7 +30,7 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 @RequiredArgsConstructor
 @Controller
-public class IndexController {
+public class CVSWebController {
 
     @Autowired
     private EventService eventService;
@@ -53,12 +44,6 @@ public class IndexController {
     @Autowired
     private UserRepository userRepository;
 
-
-    @GetMapping("/")
-    public String index() {
-
-        return "index"; // templates/index.html
-    }
 
     @GetMapping("/new")
     public String news(@PageableDefault Pageable pageable, Model model) {
@@ -140,26 +125,6 @@ public class IndexController {
     }
 
 
-    // 로그인 결과 페이지
-    @GetMapping("/loginSuccess")
-    public String dispLoginResult() {
-        return "/loginSuccess";
-    }
-
-    // 로그아웃 결과 페이지
-    @GetMapping("/logout")
-    public String dispLogout() {
-        return "/logout";
-    }
-
-    // 접근 거부 페이지
-    @GetMapping("/accessDenied")
-    public String dispDenied() {
-        return "/accessDenied";
-    }
-
-
-
     @GetMapping("/event/search")
     public String eventNameSearch(@RequestParam(value = "name") String name, Model model) {
 
@@ -218,7 +183,5 @@ public class IndexController {
 
         return "new";
     }
-
-
 
 }
