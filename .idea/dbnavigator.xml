@@ -27,15 +27,7 @@
   </component>
   <component name="DBNavigator.Project.DatabaseConsoleManager">
     <connection id="b57de784-713d-4075-a207-5939f7796e63">
-      <console name="Connection" type="STANDARD" schema="mysql" session="Main" />
-      <console name="dmc-jpa-2" type="STANDARD" schema="mysql" session="Main"><![CDATA[CREATE table Review(
-	review_id bigint not null,
-	review_comment varchar(255),
-	review_like varchar(255),
-	news_id bigint,
-	user_id bigint,
-	primary key(review_id)
-) engine=InnoDB]]></console>
+      <console name="Connection" type="STANDARD" schema="" session="Main" />
     </connection>
   </component>
   <component name="DBNavigator.Project.DatabaseFileManager">

@@ -3,6 +3,8 @@ package com.dmc.oauth2.web;
 import com.dmc.oauth2.domain.koreaFunds.KoreaFunds;
 import com.dmc.oauth2.domain.koreaFunds.KoreaFundsRepository;
 import com.dmc.oauth2.domain.koreaFunds.dto.KoreaFundsListResponseDto;
+import com.dmc.oauth2.domain.koreaFunds.dto.KoreaFundsNameDto;
+import com.dmc.oauth2.domain.koreaFunds.dto.KoreaFundsTypeDto;
 import com.dmc.oauth2.service.KoreaFundsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -47,7 +49,7 @@ public class FundsWebController {
         return "koreafundsTop10";
     }
 
-    @GetMapping("/koreafundsTop10/searchName")
+    @GetMapping("/koreafunds/searchName")
     public String QfindSearchName(@RequestParam(value = "fund_name")String fund_name, Model model){
         List<KoreaFundsListResponseDto> list = this.koreaFundsService.findSearchName(fund_name);
         model.addAttribute("koreafunds",list);
@@ -55,7 +57,7 @@ public class FundsWebController {
     }
 
 
-    @GetMapping("/koreafundsTop10/searchType")
+    @GetMapping("/koreafunds/searchType")
     public String QfindSearchType(@RequestParam(value = "fund_type")String fund_type,Model model){
         List<KoreaFundsListResponseDto> list = koreaFundsService.findSearchType(fund_type);
         model.addAttribute("koreafunds",list);
@@ -64,19 +66,19 @@ public class FundsWebController {
 
 
 
-    @GetMapping("/pkoreafundsTop10/searchName")
-    public String PfindSearchName(@RequestParam(value = "fund_name")String fund_name, Model model){
+    @GetMapping("/pkoreafunds/searchName")
+    public String PfindSearchName(@RequestParam(value = "fund_name") String fund_name, Model model, @PageableDefault Pageable pageable){
 
-
-        List<KoreaFundsListResponseDto> list = this.koreaFundsService.findSearchName(fund_name);
+        Page<KoreaFundsListResponseDto> list = this.koreaFundsService.PfindSearchName(fund_name, pageable);
         model.addAttribute("koreafunds",list);
         return "koreafundsTop10";
     }
 
 
-    @GetMapping("/pkoreafundsTop10/searchType")
-    public String PfindSearchType(@RequestParam(value = "fund_type")String fund_type,Model model){
-        List<KoreaFundsListResponseDto> list = koreaFundsService.findSearchType(fund_type);
+    @GetMapping("/pkoreafunds/searchType")
+    public String PfindSearchType(@RequestParam(value = "fund_type") String fund_type, Model model, @PageableDefault Pageable pageable){
+
+        Page<KoreaFundsListResponseDto> list = this.koreaFundsService.PfindSearchType(fund_type, pageable);
         model.addAttribute("koreafunds",list);
         return "koreafundsTop10";
     }

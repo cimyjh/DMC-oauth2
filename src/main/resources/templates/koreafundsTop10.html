@@ -17,6 +17,7 @@
 <link href="/css/all.css" rel="stylesheet" type="text/css">
 <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
 <link href='https://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
+
 <link
    href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic'
    rel='stylesheet' type='text/css'>
@@ -24,6 +25,9 @@
    href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700'
    rel='stylesheet' type='text/css'>
 <link rel="stylesheet" href="/css/agency.css">
+
+
+
 </head>
    <nav class="navbar navbar-expand-lg navbar-dark " id="mainNav">
       <div class="container" style="background-color: #212529;">
@@ -84,31 +88,29 @@
       </div>
 
 
-
-
       <div class="card-body">
          <div class="table-responsive">
-            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+            <table id="dataTable" class="table table-bordered" width="100%" cellspacing="0">
                <thead>
                <tr>
-                  <th style="width: 5%">번호</th>
-                  <th style="width: 40%">이름</th>
-                  <th style="width: 20%">타입</th>
-                  <th style="width: 15%">개시일</th>
-                  <th style="width: 10%">3년 수익률</th>
-                  <th style="width: 5%">자산규모</th>
-                  <th style="width: 5%">운용규모</th>
+                  <th>번호</th>
+                  <th>이름</th>
+                  <th>타입</th>
+                  <th>개시일</th>
+                  <th>3년 수익률</th>
+                  <th>자산규모</th>
+                  <th>운용규모</th>
                </tr>
                </thead>
                <tfoot>
                <tr>
-                  <th style="width: 5%">번호</th>
-                  <th style="width: 40%">이름</th>
-                  <th style="width: 20%">타입</th>
-                  <th style="width: 15%">개시일</th>
-                  <th style="width: 10%">3년 수익률</th>
-                  <th style="width: 5%">자산규모</th>
-                  <th style="width: 5%">운용규모</th>
+                  <th>번호</th>
+                  <th>이름</th>
+                  <th>타입</th>
+                  <th>개시일</th>
+                  <th>3년 수익률</th>
+                  <th>자산규모</th>
+                  <th>운용규모</th>
                </tr>
                </tfoot>
                <tbody>
@@ -125,38 +127,10 @@
                </tbody>
             </table>
          </div>
-         <nav aria-label="Page navigation example" >
-            <ul class="pagination pagination-sm justify-content-center" th:with="start=${T(Math).floor(koreafunds.number/10)*10 + 1}, last=(${start + 9 < koreafunds.totalPages ? start + 9 : koreafunds.totalPages})">
-               <li class="page-item">
-                  <a class="page-link" th:href="@{/koreafunds(page=1)}" aria-label="First">
-                     <span aria-hidden="true">First</span>
-                  </a>
-               </li>
-               <li class="page-item" th:class="${koreafunds.first} ? 'disabled'">
-                  <a class="page-link" th:href="${koreafunds.first} ? '#' :@{/koreafunds(page=${koreafunds.number})}" aria-label="Previous">
-                     <span aria-hidden="true">&lt;</span>
-                  </a>
-               </li>
-               <li class="page-item" th:each="page: ${#numbers.sequence(start, last)}" th:class="${page == koreafunds.number + 1} ? 'active'">
-                  <a class="page-link" th:text="${page}" th:href="@{/koreafunds(page=${page})}"></a>
-               </li>
-
-               <li class="page-item" th:class="${koreafunds.last} ? 'disabled'">
-                  <a class="page-link" th:href="${koreafunds.last} ? '#' : @{/koreafunds(page=${koreafunds.number + 2})}" aria-label="Next">
-                     <span aria-hidden="true">&gt;</span>
-                  </a>
-               </li>
-               <li class="page-item">
-                  <a class="page-link" th:href="@{/koreafunds(page=${koreafunds.totalPages})}" aria-label="Last">
-                     <span aria-hidden="true">Last</span>
-                  </a>
-               </li>
-            </ul>
-         </nav>
       </div>
    </div>
-</div>>
-</body>
+</div>
+</div>
 
    <!-- Footer -->
    <footer class="py-5 bg-dark">
@@ -176,6 +150,5 @@
    <!-- Page level custom scripts -->
    <script src="js/demo/datatables-demo.js"></script>
 
-
-
+</body>
 </html>

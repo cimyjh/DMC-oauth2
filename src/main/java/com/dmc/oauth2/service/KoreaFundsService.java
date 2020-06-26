@@ -58,4 +58,24 @@ public class KoreaFundsService {
 
         return koreaFundsRepository.QfindSearchType(condition);
     }
+
+
+
+    public Page<KoreaFundsListResponseDto> PfindSearchName(String fund_name, Pageable pageable){
+
+        KoreaFundsNameDto condition = new KoreaFundsNameDto();
+        condition.setFund_name(fund_name);
+
+        return koreaFundsRepository.PfindSearchName(condition, pageable);
+    }
+
+
+    public Page<KoreaFundsListResponseDto> PfindSearchType(String fund_type, Pageable pageable){
+        KoreaFundsTypeDto condition = new KoreaFundsTypeDto();
+        condition.setFund_type(fund_type);
+
+        return koreaFundsRepository.PfindSearchType(condition, pageable);
+    }
+
+
 }
