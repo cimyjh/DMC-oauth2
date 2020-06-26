@@ -132,9 +132,8 @@
 
 				<form action="/event/category" method="get">
 					<div>
-						<div class="row col-lg-12">
-						
-							<select name="evt" class="form-control col-lg-4"
+						<div class="row col-lg-9">
+							<select name="evt" class="form-control col-lg-3 col-md-3 col-sm-3"
 								id="evt">
 								<option value="">전체행사</option>
 								<option value="1+1">1+1 행사</option>
@@ -142,11 +141,8 @@
 								<option value="덤증정행사">증정 행사</option>
 								<option value="할인행사">할인행사</option>
 								<option value="기타행사">기타행사</option>
-							</select> 
-							
-							<p> &nbsp </p>
-							
-							<select name="product1" class="form-control  col-lg-4"
+							</select>
+							<select name="product1" class="form-control  col-lg-3 col-md-3 col-sm-3"
 								id="product1">
 								<option value="">모든 상품</option>
 								<option value="식품">식품</option>
@@ -155,24 +151,19 @@
 								<option value="음료">음료</option>
 								<option value="생활용품">생활용품</option>
 								<option value="기타">기타</option>
-							</select> 
-							
+							</select>
+								<input type="submit" class="btn btn-primary col-lg-3 col-md-3 col-sm-3" value="검색" />
 							<p> &nbsp </p>
-							
-								<input type="submit"
-								class="btn btn-primary col-1" value="검색" />
+
 						</div>
 					</div>
 				</form>
-
 				<form action="/event/search" method="get">
 					<div>
 					<div>
-						<div class="row col-lg-12">
-							<input type="text" class="form-control col-lg-4" id="name" name="name">
-							
-								<input type="submit"
-								class="btn btn-primary col-1" value="검색" />
+						<div class="row col-lg-9 col-md-9 col-sm-9">
+							<input type="text" class="form-control col-lg-6 col-md-6 col-sm-6" id="name" name="name">
+								<input type="submit" class="btn btn-primary col-lg-3 col-md-3 col-sm-3" value="검색" />
 						</div>
 						</div>
 					</div>

@@ -1,6 +1,5 @@
 package com.dmc.oauth2.domain.event.dto;
 
-import com.dmc.oauth2.domain.event.Event;
 import com.querydsl.core.annotations.QueryProjection;
 import lombok.Data;
 

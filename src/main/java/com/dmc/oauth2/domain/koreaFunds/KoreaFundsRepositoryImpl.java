@@ -4,8 +4,12 @@ import com.dmc.oauth2.domain.koreaFunds.dto.KoreaFundsListResponseDto;
 import com.dmc.oauth2.domain.koreaFunds.dto.KoreaFundsNameDto;
 import com.dmc.oauth2.domain.koreaFunds.dto.KoreaFundsTypeDto;
 import com.dmc.oauth2.domain.koreaFunds.dto.QKoreaFundsListResponseDto;
+import com.querydsl.core.QueryResults;
 import com.querydsl.core.types.dsl.BooleanExpression;
 import com.querydsl.jpa.impl.JPAQueryFactory;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageImpl;
+import org.springframework.data.domain.Pageable;
 
 import javax.persistence.EntityManager;
 import java.util.List;
@@ -106,6 +110,51 @@ public class KoreaFundsRepositoryImpl implements KoreaFundsRepositoryCustom {
                 .fetch();
     }
 
+    @Override
+    public Page<KoreaFundsListResponseDto> PfindSearchName(KoreaFundsNameDto condition, Pageable pageable) {
+        QueryResults<KoreaFundsListResponseDto> results = queryFactory
+                .select(new QKoreaFundsListResponseDto(
+                        koreaFunds.fund_num,
+                        koreaFunds.fund_name,
+                        koreaFunds.fund_type,
+                        koreaFunds.fund_start_date,
+                        koreaFunds.fund_3y,
+                        koreaFunds.fund_assets,
+                        koreaFunds.fund_scale_operation))
+                .from(koreaFunds)
+                .where(koreaFundsNameContains(condition.getFund_name()))
+                .offset(pageable.getOffset())
+                .limit(pageable.getPageSize())
+                .fetchResults();
+        List<KoreaFundsListResponseDto> content = results.getResults();
+        long total = results.getTotal();
+
+        return new PageImpl<>(content, pageable,total);
+
+    }
+
+    @Override
+    public Page<KoreaFundsListResponseDto> PfindSearchType(KoreaFundsTypeDto condition, Pageable pageable) {
+        QueryResults<KoreaFundsListResponseDto> results = queryFactory
+                .select(new QKoreaFundsListResponseDto(
+                        koreaFunds.fund_num,
+                        koreaFunds.fund_name,
+                        koreaFunds.fund_type,
+                        koreaFunds.fund_start_date,
+                        koreaFunds.fund_3y,
+                        koreaFunds.fund_assets,
+                        koreaFunds.fund_scale_operation))
+                .from(koreaFunds)
+                .where(koreaFundsTypeContains(condition.getFund_type()))
+                .offset(pageable.getOffset())
+                .limit(pageable.getPageSize())
+                .fetchResults();
+        List<KoreaFundsListResponseDto> content = results.getResults();
+        long total = results.getTotal();
+
+        return new PageImpl<>(content, pageable,total);
+
+    }
 
 
     private BooleanExpression koreaFundsNameContains(String name){
