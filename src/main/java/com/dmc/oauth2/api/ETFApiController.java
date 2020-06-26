@@ -1,10 +1,10 @@
 package com.dmc.oauth2.api;
 
+import com.dmc.oauth2.apiException.NotFoundException;
 import com.dmc.oauth2.domain.etfFunds.EtfFundsRepository;
 import com.dmc.oauth2.domain.etfFunds.dto.EtfFundsListResponseDto;
-import com.dmc.oauth2.domain.koreaFunds.KoreaFunds;
-import com.dmc.oauth2.domain.koreaFunds.KoreaFundsRepository;
-import com.dmc.oauth2.domain.koreaFunds.dto.KoreaFundsListResponseDto;
+import com.dmc.oauth2.domain.etfFunds.dto.EtfFundsNameDto;
+import com.dmc.oauth2.domain.etfFunds.dto.EtfFundsbasicIndexDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -14,22 +14,8 @@ import java.util.List;
 
 @RestController
 @RequiredArgsConstructor
-public class FundApiController {
-    private final KoreaFundsRepository koreaFundsRepository;
+public class ETFApiController {
     private final EtfFundsRepository etfFundsRepository;
-
-
-    @GetMapping("/v1/fund/koreafunds")
-    public List<KoreaFundsListResponseDto> KoreaFundsFindAll(){
-        return koreaFundsRepository.findAllDto();
-    }
-
-
-    @GetMapping("/v1/fund/koreafunds/top10")
-    public List<KoreaFundsListResponseDto> KoreadFundsTop10(){
-        return koreaFundsRepository.QfindTop10ByFund_3y();
-    }
-
 
 
     @GetMapping("/v1/fund/etffunds")
@@ -56,6 +42,36 @@ public class FundApiController {
     public List<EtfFundsListResponseDto> QfindTop10ByEtf_1dV(){
         return etfFundsRepository.QfindTop10ByEtf_1dV();
     }
+
+
+    @GetMapping("/v1/fund/etffunds/asset_top10")
+    public List<EtfFundsListResponseDto> QfindTop10ByEtf_assets(){
+        return etfFundsRepository.QfindTop10ByEtf_assets();
+    }
+
+    @GetMapping("/v1/fund/etffunds/findSearchName")
+    public List<EtfFundsListResponseDto> QfindSearchName(EtfFundsNameDto condition){
+        List<EtfFundsListResponseDto> etfList = etfFundsRepository.QfindSearchName(condition);
+
+        if(etfList.isEmpty()){
+            throw new NotFoundException(String.format("name[%s] not found",condition));
+        }
+
+        return etfList;
+    }
+
+    @GetMapping("/v1/fund/etffunds/findSearchBasic_Index")
+    public List<EtfFundsListResponseDto> QfindSearchBasic_Index(EtfFundsbasicIndexDto condition){
+        List<EtfFundsListResponseDto> etfList = etfFundsRepository.QfindSearchBasic_Index(condition);
+
+        if(etfList.isEmpty()){
+            throw new NotFoundException(String.format("basic_index [%s] not found",condition));
+        }
+
+        return etfList;
+    }
+
+
 
 
 }

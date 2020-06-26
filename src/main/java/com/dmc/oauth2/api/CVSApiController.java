@@ -20,7 +20,7 @@ import java.util.List;
 
 @RestController
 @RequiredArgsConstructor
-public class ApiController {
+public class CVSApiController {
 
     private final EventRepository eventRepository;
     private final NewsRepository newsRepository;
