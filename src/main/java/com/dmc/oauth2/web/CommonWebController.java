@@ -46,10 +46,17 @@ public class CommonWebController {
 
 
     @GetMapping("/")
+    public String resume() {
+
+        return "resume"; // templates/index.html
+    }
+
+    @GetMapping("/index")
     public String index() {
 
         return "index"; // templates/index.html
     }
+
 
 
     // 로그인 결과 페이지

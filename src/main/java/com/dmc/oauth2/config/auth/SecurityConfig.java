@@ -26,14 +26,14 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                             "/vendor/**", "/css/**", "/img/**", "/js/**", "/h2-console/**",
                             "/profile", "/lib/**", "/v2/api-docs", "/configuration/ui",
                             "/swagger-resources/**", "/configuration/**", "/swagger-ui.html",
-                            "/webjars/**").permitAll()
+                            "/webjars/**","resume.html", "/index/**","/assets/**", "/koreafunds/**", "/koreafundsTop10/**").permitAll()
 //                    .antMatchers("/api/v1/**").hasRole(Role.USER.name())
                     .antMatchers("/new/**", "/detail/**").authenticated()
                     .anyRequest().authenticated()
                 .and()
                     .logout()
                     .logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
-                    .logoutSuccessUrl("/")
+                    .logoutSuccessUrl("/index")
                 .and()
                     .oauth2Login()
                         .userInfoEndpoint()

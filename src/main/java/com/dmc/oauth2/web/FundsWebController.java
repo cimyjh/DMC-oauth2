@@ -39,7 +39,7 @@ public class FundsWebController {
     public String KoreadFundsTop10(Model model){
         List<KoreaFundsListResponseDto> list = this.koreaFundsService.KoreaFundsTop10();
         model.addAttribute("koreafunds",list);
-        return "exkoreafundsTop10";
+        return "koreafundsTop10";
     }
 
     @GetMapping("/koreafundsTop10/asset")
@@ -66,20 +66,23 @@ public class FundsWebController {
 
 
 
-    @GetMapping("/pkoreafunds/searchName")
-    public String PfindSearchName(@RequestParam(value = "fund_name") String fund_name, Model model, @PageableDefault Pageable pageable){
+//    @GetMapping("/pkoreafunds/searchName")
+//    public String PfindSearchName(@RequestParam(value = "fund_name") String fund_name, Model model, @PageableDefault Pageable pageable){
+//
+//        Page<KoreaFundsListResponseDto> list = this.koreaFundsService.PfindSearchName(fund_name, pageable);
+//        model.addAttribute("koreafunds",list);
+//        return "koreafundsTop10";
+//    }
+//
+//
+//    @GetMapping("/pkoreafunds/searchType")
+//    public String PfindSearchType(@RequestParam(value = "fund_type") String fund_type, Model model, @PageableDefault Pageable pageable){
+//
+//        Page<KoreaFundsListResponseDto> list = this.koreaFundsService.PfindSearchType(fund_type, pageable);
+//        model.addAttribute("koreafunds",list);
+//        return "koreafundsTop10";
+//    }
 
-        Page<KoreaFundsListResponseDto> list = this.koreaFundsService.PfindSearchName(fund_name, pageable);
-        model.addAttribute("koreafunds",list);
-        return "koreafundsTop10";
-    }
 
-
-    @GetMapping("/pkoreafunds/searchType")
-    public String PfindSearchType(@RequestParam(value = "fund_type") String fund_type, Model model, @PageableDefault Pageable pageable){
-
-        Page<KoreaFundsListResponseDto> list = this.koreaFundsService.PfindSearchType(fund_type, pageable);
-        model.addAttribute("koreafunds",list);
-        return "koreafundsTop10";
-    }
 }
+

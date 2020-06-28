@@ -26,7 +26,7 @@
 </head>
    <nav class="navbar navbar-expand-lg navbar-dark " id="mainNav">
       <div class="container" style="background-color: #212529;">
-         <a class="navbar-brand js-scroll-trigger" th:href="@{/}">DMC</a>
+         <a class="navbar-brand js-scroll-trigger" th:href="@{/koreafunds}">KoreaFunds</a>
          <button class="navbar-toggler navbar-toggler-right" type="button"
             data-toggle="collapse" data-target="#navbarResponsive"
             aria-controls="navbarResponsive" aria-expanded="false"
@@ -34,16 +34,12 @@
             Menu <i class="fas fa-bars"></i>
          </button>
          <div class="collapse navbar-collapse" id="navbarResponsive">
-				<ul class="navbar-nav text-uppercase ml-auto">
-					<li class="nav-item"><a class="nav-link js-scroll-trigger"
-						th:href="@{/event}">Event</a></li>
-					<li class="nav-item"><a class="nav-link js-scroll-trigger"
-						th:href="@{/new}">New</a></li>
-					<li class="nav-item"><a class="nav-link js-scroll-trigger"
-						href="#team">Login</a></li>
-					<li class="nav-item"><a class="nav-link js-scroll-trigger"
-						href="#contact">Register</a></li>
-				</ul>
+            <ul class="navbar-nav text-uppercase ml-auto">
+               <li class="nav-item"><a class="nav-link js-scroll-trigger"
+                                       th:href="@{/koreafunds}">KoreaFunds</a></li>
+               <li class="nav-item"><a class="nav-link js-scroll-trigger"
+                                       th:href="@{/etffunds}">ETFfunds</a></li>
+            </ul>
          </div>
       </div>
    </nav>
@@ -58,28 +54,33 @@
       <div class="card shadow mb-4">
          <div class="card-header py-3">
             <h6 class="m-0 font-weight-bold text-primary">DataTables Example</h6>
-
             <form action="/koreafunds/searchName" method="get">
                <div>
                   <div>
                      <div class="row col-lg-6 col-md-6 col-sm-9">
-                        <input type="text" class="form-control col-lg-3 col-md-3 col-sm-6" id="fund_name" name="fund_name">
+                        <input type="text" class="form-control col-lg-3 col-md-3 col-sm-6" id="fund_name" name="fund_name" size=10 placeholder="펀드 이름">
                         <input type="submit" class="btn btn-primary col-lg-2 col-md-2 col-sm-3" value="검색" />
                      </div>
                   </div>
                </div>
             </form>
+            <p>---------------------------------</p>
 
             <form action="/koreafunds/searchType" method="get">
                <div>
                   <div>
                      <div class="row col-lg-6 col-md-6 col-sm-9">
-                        <input type="text" class="form-control col-lg-3 col-md-6 col-sm-2" id="fund_type" name="fund_type">
+                        <input type="text" class="form-control col-lg-3 col-md-6 col-sm-2" id="fund_type" name="fund_type" placeholder="펀드 타입">
                         <input type="submit" class="btn btn-primary col-lg-2 col-md-3 col-sm-3" value="검색" />
                      </div>
                   </div>
                </div>
             </form>
+            <p>---------------------------------</p>
+            <button type="button" class="btn btn-info"><a th:href="@{/koreafundsTop10/3y}" style="color: white">3년 수익률 상위 10개 펀드</a> </button>
+            <p>---------------------------------</p>
+            <button type="button" class="btn btn-info"><a th:href="@{/koreafundsTop10/asset}" style="color: white">자산규모 상위 10개 펀드</a> </button>
+
          </div>
 
 
