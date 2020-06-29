@@ -26,7 +26,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                             "/vendor/**", "/css/**", "/img/**", "/js/**", "/h2-console/**",
                             "/profile", "/lib/**", "/v2/api-docs", "/configuration/ui",
                             "/swagger-resources/**", "/configuration/**", "/swagger-ui.html",
-                            "/webjars/**","resume.html", "/index/**","/assets/**", "/koreafunds/**", "/koreafundsTop10/**").permitAll()
+                            "/webjars/**","resume.html", "/index/**","/assets/**", "/koreafunds/**", "/koreafundsTop10/**",
+                            "/etffunds/**", "/etffundsTop10/**").permitAll()
 //                    .antMatchers("/api/v1/**").hasRole(Role.USER.name())
                     .antMatchers("/new/**", "/detail/**").authenticated()
                     .anyRequest().authenticated()
