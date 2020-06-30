@@ -2,7 +2,9 @@ package com.dmc.oauth2.domain.koreaFunds;
 
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
@@ -10,6 +12,8 @@ import javax.persistence.*;
 @Entity
 @Getter
 @Setter
+@NoArgsConstructor
+@AllArgsConstructor
 @Table(name = "korea_funds")
 @ApiModel(description = "펀드 정보를 위한 도메인 객체")
 public class KoreaFunds {
@@ -30,5 +34,6 @@ public class KoreaFunds {
 
     private Long fund_assets;
     private Long fund_scale_operation;
+
 
 }
