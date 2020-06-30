@@ -39,9 +39,7 @@ class Oauth2ApplicationTests {
 		queryFactory = new JPAQueryFactory(em);
 		KoreaFunds koreaFundsA = new KoreaFunds(5555L,"하나U별자산 3 ClassC1", "부동산대출채권", "2007/08", (float) 177.56, 50L, 188L);
 		em.persist(koreaFundsA);
-
 	}
-
 
 	@Test
 	public void searchTest(){

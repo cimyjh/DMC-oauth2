@@ -52,13 +52,10 @@
             <a class="nav-link js-scroll-trigger" href="#new">New</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" sec:authorize="isAnonymous()" th:href="@{login}">Login</a>
+            <a class="nav-link js-scroll-trigger" sec:authorize="isAnonymous()" th:href="@{login}">OAuth2 Login, Register</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" sec:authorize="isAnonymous()" th:href="@{register}">Register</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" sec:authorize="isAuthenticated()" th:href="@{logout}">Logout</a>
+            <a class="nav-link js-scroll-trigger" sec:authorize="isAuthenticated()" th:href="@{logout}">OAuth2 Logout</a>
           </li>
         </ul>
       </div>
