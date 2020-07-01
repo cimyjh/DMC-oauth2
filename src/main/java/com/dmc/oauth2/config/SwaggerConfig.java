@@ -25,7 +25,8 @@ public class SwaggerConfig {
             "http://www.apache.org/licenses/LICENSE-2.0", new ArrayList<>());
 
     private static final Set<String> DEFAULT_PRODUCES_AND_CONSUMES = new HashSet<>(
-            Arrays.asList("application/json", "application/xml"));
+            Arrays.asList("application/json"));
+//            Arrays.asList("application/json", "application/xml"));
 
     @Bean
     public Docket api() {
