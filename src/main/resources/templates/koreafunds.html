@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th=" http://www.thymeleaf.org" />
+<head>
+<meta charset="utf-8" />
+<meta name="viewport"
+   content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+<meta name="description" content="" />
+<meta name="author" content="" />
+<title>DMC NewProductpage</title>
+
+<!-- Bootstrap core CSS -->
+<link href="/css/bootstrap.css" rel="stylesheet">
+<!-- Custom styles for this template -->
+<link href="/css/shop-homepage.css" rel="stylesheet">
+<!-- Custom fonts for this template -->
+<link href="/css/all.css" rel="stylesheet" type="text/css">
+<link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+<link href='https://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
+<link
+   href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic'
+   rel='stylesheet' type='text/css'>
+<link
+   href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700'
+   rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="/css/agency.css">
+</head>
+
+<nav class="navbar navbar-light bg-light justify-content-center">
+   <a class="navbar-brand justify-content-center" th:href="@{/}">포트폴리오 소개 페이지 이동하기</a>
+</nav>
+   <nav class="navbar navbar-expand-lg navbar-dark " id="mainNav">
+      <div class="container" style="background-color: #212529;">
+         <a class="navbar-brand js-scroll-trigger" th:href="@{/koreafunds}">KoreaFunds</a>
+         <button class="navbar-toggler navbar-toggler-right" type="button"
+            data-toggle="collapse" data-target="#navbarResponsive"
+            aria-controls="navbarResponsive" aria-expanded="false"
+            aria-label="Toggle navigation">
+            Menu <i class="fas fa-bars"></i>
+         </button>
+         <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav text-uppercase ml-auto">
+               <li class="nav-item"><a class="nav-link js-scroll-trigger"
+                                       th:href="@{/koreafunds}">KoreaFunds</a></li>
+               <li class="nav-item"><a class="nav-link js-scroll-trigger"
+                                       th:href="@{/etffunds}">ETFfunds</a></li>
+            </ul>
+         </div>
+      </div>
+   </nav>
+
+<body>
+   <div class="container-fluid">
+      <!-- Page Heading -->
+      <h1 class="h3 mb-2 text-gray-800">한국 펀드</h1>
+      <p class="mb-4">웹 크롤링 한 데이터를 AWS_RDS의 mariaDB에 올렸습니다. 이를 Spring Framework를 통해 웹 애플리케이션으로 구현했습니다.
+         <br/>
+         <a target="_blank" href="http://www.funddoctor.co.kr/afn/topfund/fundrate1.jsp" style="color: blue">
+            파이썬으로 웹 크롤링한 원문페이지입니다. 펀드닥터.
+         </a>
+      </p>
+
+      <!-- DataTales Example -->
+      <div class="card shadow mb-4">
+         <div class="card-header py-3">
+            <h6 class="m-0 font-weight-bold text-primary" style="color: black">검색기능</h6>
+            <form action="/koreafunds/searchName" method="get">
+               <div>
+                  <div>
+                     <div class="row col-lg-6 col-md-6 col-sm-9">
+                        <input type="text" class="form-control col-lg-3 col-md-3 col-sm-6" id="fund_name" name="fund_name" size=10 placeholder="펀드 이름">
+                        <input type="submit" class="btn btn-primary col-lg-2 col-md-2 col-sm-3" value="검색" />
+                     </div>
+                  </div>
+               </div>
+            </form>
+            <p>---------------------------------</p>
+
+            <form action="/koreafunds/searchType" method="get">
+               <div>
+                  <div>
+                     <div class="row col-lg-6 col-md-6 col-sm-9">
+                        <input type="text" class="form-control col-lg-3 col-md-6 col-sm-2" id="fund_type" name="fund_type" placeholder="펀드 타입">
+                        <input type="submit" class="btn btn-primary col-lg-2 col-md-3 col-sm-3" value="검색" />
+                     </div>
+                  </div>
+               </div>
+            </form>
+            <p>---------------------------------</p>
+            <button type="button" class="btn btn-info"><a th:href="@{/koreafundsTop10/3y}" style="color: white">3년 수익률 상위 10개 펀드</a> </button>
+            <p>---------------------------------</p>
+            <button type="button" class="btn btn-info"><a th:href="@{/koreafundsTop10/asset}" style="color: white">자산규모 상위 10개 펀드</a> </button>
+
+         </div>
+
+
+
+
+         <div class="card-body">
+            <div class="table-responsive">
+               <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                  <thead>
+                  <tr>
+                     <th style="width: 5%">번호</th>
+                     <th style="width: 40%">이름</th>
+                     <th style="width: 20%">타입</th>
+                     <th style="width: 15%">개시일</th>
+                     <th style="width: 10%">3년 수익률</th>
+                     <th style="width: 5%">자산규모</th>
+                     <th style="width: 5%">운용규모</th>
+                  </tr>
+                  </thead>
+                  <tfoot>
+                  <tr>
+                     <th style="width: 5%">번호</th>
+                     <th style="width: 40%">이름</th>
+                     <th style="width: 20%">타입</th>
+                     <th style="width: 15%">개시일</th>
+                     <th style="width: 10%">3년 수익률</th>
+                     <th style="width: 5%">자산규모</th>
+                     <th style="width: 5%">운용규모</th>
+                  </tr>
+                  </tfoot>
+                  <tbody>
+                  <tr th:each="koreafunds:${koreafunds}">
+                     <td th:text = "${koreafunds.fund_num}"></td>
+                     <td th:text = "${koreafunds.fund_name}"></td>
+                     <td th:text = "${koreafunds.fund_type}"></td>
+                     <td th:text = "${koreafunds.fund_start_date}"></td>
+                     <td th:text = "${koreafunds.fund_3y}"></td>
+                     <td th:text = "${koreafunds.fund_assets}"></td>
+                     <td th:text = "${koreafunds.fund_scale_operation}"></td>
+                  </tr>
+
+                  </tbody>
+               </table>
+            </div>
+               <nav aria-label="Page navigation example" >
+                  <ul class="pagination pagination-sm justify-content-center" th:with="start=${T(Math).floor(koreafunds.number/10)*10 + 1}, last=(${start + 9 < koreafunds.totalPages ? start + 9 : koreafunds.totalPages})">
+                     <li class="page-item">
+                        <a class="page-link" th:href="@{/koreafunds(page=1)}" aria-label="First">
+                           <span aria-hidden="true">First</span>
+                        </a>
+                     </li>
+                     <li class="page-item" th:class="${koreafunds.first} ? 'disabled'">
+                        <a class="page-link" th:href="${koreafunds.first} ? '#' :@{/koreafunds(page=${koreafunds.number})}" aria-label="Previous">
+                           <span aria-hidden="true">&lt;</span>
+                        </a>
+                     </li>
+                     <li class="page-item" th:each="page: ${#numbers.sequence(start, last)}" th:class="${page == koreafunds.number + 1} ? 'active'">
+                        <a class="page-link" th:text="${page}" th:href="@{/koreafunds(page=${page})}"></a>
+                     </li>
+
+                     <li class="page-item" th:class="${koreafunds.last} ? 'disabled'">
+                        <a class="page-link" th:href="${koreafunds.last} ? '#' : @{/koreafunds(page=${koreafunds.number + 2})}" aria-label="Next">
+                           <span aria-hidden="true">&gt;</span>
+                        </a>
+                     </li>
+                     <li class="page-item">
+                        <a class="page-link" th:href="@{/koreafunds(page=${koreafunds.totalPages})}" aria-label="Last">
+                           <span aria-hidden="true">Last</span>
+                        </a>
+                     </li>
+                  </ul>
+               </nav>
+         </div>
+      </div>
+   </div>
+
+   <!-- Footer -->
+   <footer class="py-5 bg-dark">
+      <div class="container">
+         <p class="m-0 text-center text-white">Copyright &copy; 윤재형</p>
+      </div>
+      <!-- /.container -->
+   </footer>
+
+   <!-- Bootstrap core JavaScript -->
+   <script src="/js/jquery.js"></script>
+   <script src="/js/bootstrap.bundle.js"></script>
+   <script src="/js/custom.js"></script>
+
+</body>
+
+</html>

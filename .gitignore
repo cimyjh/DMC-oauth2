@@ -1,0 +1,12 @@
+ Project exclude paths
+.travis.yml
+appspec.yml
+/.gradle/
+/build/
+/build/classes/java/main/
+/build/classes/java/test/
+
+
+#/src/main/resources/application-oauth.properties
+#/src/main/resources/application-real.properties
+
