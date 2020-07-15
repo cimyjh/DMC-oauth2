@@ -38,7 +38,7 @@ deploy:
 
   - provider: codedeploy
     access_key_id: AKIA2MKI32MASCFJ56ME # Travis repo settings에 설정된 값
-    secret_access_key: XkjO9FL2Op8kJ1Pw4qBfzkEzabUSmEMGsUiQ # Travis repo settings에 설정된 값
+    secret_access_key: XkjO9FL2Op8kJ1Pw4qBfzkEzabUSmEMGsUiQ+aDZ # Travis repo settings에 설정된 값
     bucket: dmcoauth2 # S3 버킷
     key: DMC-OAuth2.zip # 빌드 파일을 압축해서 전달
     bundle_type: zip
