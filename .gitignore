@@ -1,8 +1,8 @@
 # Project exclude paths
-/.gradle/
-/build/
-/build/classes/java/main/
-/build/classes/java/test/
+#/.gradle/
+#/build/
+#/build/classes/java/main/
+#/build/classes/java/test/
 
 #/src/main/resources/application-oauth.properties
 #/src/main/resources/application-real.properties
