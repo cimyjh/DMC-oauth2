@@ -23,26 +23,26 @@ import static org.junit.jupiter.api.Assertions.*;
 @AutoConfigureTestDatabase(replace = AutoConfigureTestDatabase.Replace.NONE)
 class EtfFundsRepositoryTest {
 
-    @Autowired
-    private EtfFundsRepository etfFundsRepository;
-
-    @Test
-    void findAll(){
-        List<EtfFunds> etf = etfFundsRepository.findAll();
-
-        then(!etf.isEmpty());
-
-    }
-
-    //DTO가 잘 작동하나 확인.
-    @Test
-    void findOne(){
-
-        List<EtfFundsListResponseDto> etf = etfFundsRepository.findAllDto();
-
-        then(!etf.isEmpty());
-
-    }
+//    @Autowired
+//    private EtfFundsRepository etfFundsRepository;
+//
+//    @Test
+//    void findAll(){
+//        List<EtfFunds> etf = etfFundsRepository.findAll();
+//
+//        then(!etf.isEmpty());
+//
+//    }
+//
+//    //DTO가 잘 작동하나 확인.
+//    @Test
+//    void findOne(){
+//
+//        List<EtfFundsListResponseDto> etf = etfFundsRepository.findAllDto();
+//
+//        then(!etf.isEmpty());
+//
+//    }
 
 
     //condtion에 뭐가 들어가야 하지??

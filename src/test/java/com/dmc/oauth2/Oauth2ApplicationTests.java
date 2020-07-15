@@ -20,47 +20,47 @@ import static com.dmc.oauth2.domain.koreaFunds.QKoreaFunds.*;
 @Transactional
 class Oauth2ApplicationTests {
 
-	@PersistenceContext
-	EntityManager em;
-
-	JPAQueryFactory queryFactory;
-
-//	@Autowired
-//	KoreaFundsRepository koreaFundsRepository;
+//	@PersistenceContext
+//	EntityManager em;
 //
-//	@Autowired
-//	KoreaFundsListResponseDto koreaFundsListResponseDto;
+//	JPAQueryFactory queryFactory;
 //
-//	@Autowired
-//	KoreaFunds koreaFunds;
-
-	@BeforeEach
-	public void before(){
-		queryFactory = new JPAQueryFactory(em);
-		KoreaFunds koreaFundsA = new KoreaFunds(5555L,"하나U별자산 3 ClassC1", "부동산대출채권", "2007/08", (float) 177.56, 50L, 188L);
-		em.persist(koreaFundsA);
-	}
-
-	@Test
-	public void searchTest(){
-
-		QKoreaFunds m = new QKoreaFunds("m");
-
-		KoreaFunds findKoreaFunds = queryFactory
-				.select(m)
-				.from(m)
-				.where(m.fund_name.eq("신영프라임배당[주식]종류C1"))
-				.fetchOne();
-
-		assertThat(findKoreaFunds.getFund_name()).isEqualTo("신영프라임배당[주식]종류C1");
-	}
-
-	@Test
-	public void searchAndparam(){
-		List<KoreaFunds> result1 = queryFactory
-				.selectFrom(koreaFunds)
-				.fetch();
-		assertThat(result1.size()).isEqualTo(927);
-	}
+////	@Autowired
+////	KoreaFundsRepository koreaFundsRepository;
+////
+////	@Autowired
+////	KoreaFundsListResponseDto koreaFundsListResponseDto;
+////
+////	@Autowired
+////	KoreaFunds koreaFunds;
+//
+//	@BeforeEach
+//	public void before(){
+//		queryFactory = new JPAQueryFactory(em);
+//		KoreaFunds koreaFundsA = new KoreaFunds(5555L,"하나U별자산 3 ClassC1", "부동산대출채권", "2007/08", (float) 177.56, 50L, 188L);
+//		em.persist(koreaFundsA);
+//	}
+//
+//	@Test
+//	public void searchTest(){
+//
+//		QKoreaFunds m = new QKoreaFunds("m");
+//
+//		KoreaFunds findKoreaFunds = queryFactory
+//				.select(m)
+//				.from(m)
+//				.where(m.fund_name.eq("신영프라임배당[주식]종류C1"))
+//				.fetchOne();
+//
+//		assertThat(findKoreaFunds.getFund_name()).isEqualTo("신영프라임배당[주식]종류C1");
+//	}
+//
+//	@Test
+//	public void searchAndparam(){
+//		List<KoreaFunds> result1 = queryFactory
+//				.selectFrom(koreaFunds)
+//				.fetch();
+//		assertThat(result1.size()).isEqualTo(927);
+//	}
 
 }
