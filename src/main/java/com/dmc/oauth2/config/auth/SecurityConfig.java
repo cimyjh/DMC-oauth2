@@ -22,12 +22,12 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .headers().frameOptions().disable()
                 .and()
                     .authorizeRequests()
-                    .antMatchers("/","/v1/**" ,"/event/**","/scss/**",
+                    .antMatchers("/**","/v1/**" ,"/event/**","/scss/**",
                             "/vendor/**", "/css/**", "/img/**", "/js/**", "/h2-console/**",
                             "/profile", "/lib/**", "/v2/api-docs", "/configuration/ui",
                             "/swagger-resources/**", "/configuration/**", "/swagger-ui.html",
                             "/webjars/**","resume.html", "/index/**","/assets/**", "/koreafunds/**", "/koreafundsTop10/**",
-                            "/etffunds/**", "/etffundsTop10/**").permitAll()
+                            "/etffunds/**", "/etffundsTop10/**", "/upload", "/file/**").permitAll()
 //                    .antMatchers("/api/v1/**").hasRole(Role.USER.name())
                     .antMatchers("/new/**", "/detail/**").authenticated()
                     .anyRequest().authenticated()

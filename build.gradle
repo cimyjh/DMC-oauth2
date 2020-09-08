@@ -40,6 +40,10 @@ dependencies {
 	implementation 'com.querydsl:querydsl-jpa'
 	implementation 'io.springfox:springfox-swagger2:2.9.2'
 	implementation 'io.springfox:springfox-swagger-ui:2.9.2'
+
+	//파일처리
+	implementation 'commons-io:commons-io:2.6'
+
 //	implementation 'org.springframework.session:spring-session-jdbc'
 	compileOnly 'org.projectlombok:lombok'
 	developmentOnly 'org.springframework.boot:spring-boot-devtools'
